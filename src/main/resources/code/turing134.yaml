@@ -1,0 +1,179 @@
+---
+name: turing134
+matrix:
+  - states:
+      - 0
+      - 100
+    actions:
+      - - turing
+        - initMachine
+        - ""
+  - states:
+      - 100
+      - 1
+    actions:
+      - - turing
+        - printTape
+        - ""
+  - states:
+      - 1
+      - 2
+    actions:
+      - - turing
+        - put
+        - "e"
+      - - turing
+        - move
+        - R
+      - - turing
+        - put
+        - "e"
+      - - turing
+        - move
+        - R
+      - - turing
+        - put
+        - "0"
+      - - turing
+        - move
+        - R
+      - - turing
+        - move
+        - R
+      - - turing
+        - put
+        - "0"
+      - - turing
+        - move
+        - L
+      - - turing
+        - move
+        - L
+  - states:
+      - 101
+      - 2
+    actions:
+      - - turing
+        - printTape
+        - ""
+  - states:
+      - 2
+      - 2
+    actions:
+      - - turing
+        - matchCurrentValue
+        - "1"
+      - - turing
+        - move
+        - R
+      - - turing
+        - put
+        - "x"
+      - - turing
+        - move
+        - L
+      - - turing
+        - move
+        - L        
+      - - turing
+        - move
+        - L
+  - states:
+      - 2
+      - 3
+    actions:
+      - - turing
+        - matchCurrentValue
+        - "0"
+  - states:
+      - 3
+      - 3
+    actions:
+      - - turing
+        - isAny
+        - ""
+      - - turing
+        - move
+        - R
+      - - turing
+        - move
+        - R
+  - states:
+      - 3
+      - 4
+    actions:
+      - - turing
+        - isNone
+        - ""
+      - - turing
+        - put
+        - "1"
+      - - turing
+        - move
+        - L
+  - states:
+      - 4
+      - 3
+    actions:
+      - - turing
+        - matchCurrentValue
+        - "x"
+      - - turing
+        - put
+        - " "
+      - - turing
+        - move
+        - R
+  - states:
+      - 4
+      - 5
+    actions:
+      - - turing
+        - matchCurrentValue
+        - "e"
+      - - turing
+        - move
+        - R
+  - states:
+      - 4
+      - 4
+    actions:
+      - - turing
+        - isNone
+        - ""
+      - - turing
+        - move
+        - L
+      - - turing
+        - move
+        - L
+  - states:
+      - 5
+      - 5
+    actions:
+      - - turing
+        - isAny
+        - ""
+      - - turing
+        - move
+        - R
+      - - turing
+        - move
+        - R
+  - states:
+      - 5
+      - 101
+    actions:
+      - - turing
+        - isNone
+        - ""
+      - - turing
+        - put
+        - "0"
+      - - turing
+        - move
+        - L
+      - - turing
+        - move
+        - L
+

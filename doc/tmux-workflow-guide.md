@@ -367,15 +367,15 @@ mvn clean package -DskipTests
 
 # Run tmux-demo workflow
 java -cp target/actor-WF-examples-1.0.0.jar \
-    com.scivicslab.terminal.TmuxWorkflowApp tmux-demo
+    com.scivicslab.actorwf.examples.terminal.TmuxWorkflowApp tmux-demo
 
 # Run tmux-interactive workflow
 java -cp target/actor-WF-examples-1.0.0.jar \
-    com.scivicslab.terminal.TmuxWorkflowApp tmux-interactive
+    com.scivicslab.actorwf.examples.terminal.TmuxWorkflowApp tmux-interactive
 
 # Run tmux-monitor workflow
 java -cp target/actor-WF-examples-1.0.0.jar \
-    com.scivicslab.terminal.TmuxWorkflowApp tmux-monitor
+    com.scivicslab.actorwf.examples.terminal.TmuxWorkflowApp tmux-monitor
 ```
 
 ## Workflow Execution Flow

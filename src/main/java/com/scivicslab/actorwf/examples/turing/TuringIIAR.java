@@ -1,5 +1,5 @@
 /*
- * Copyright 2025 devteam@scivics-lab.com
+ * Copyright 2025 Scivics Lab
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -7,15 +7,14 @@
  *
  *     http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
- * either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
-package com.scivicslab.turing;
+package com.scivicslab.actorwf.examples.turing;
 
 import com.scivicslab.actorwf.ActionResult;
 import com.scivicslab.actorwf.IIActorRef;
@@ -27,9 +26,13 @@ import java.util.concurrent.ExecutionException;
  * Interpreter-interfaced actor reference for Turing machine instances.
  *
  * <p>This class wraps a Turing machine object and allows it to be invoked
- * by the workflow interpreter using string-based action names.</p>
+ * by the workflow interpreter using string-based action names. It provides
+ * a bridge between the workflow system and the Turing machine implementation,
+ * enabling workflow-driven Turing machine execution.</p>
  *
- * @author devteam@scivics-lab.com
+ * <p>This actor reference translates workflow action names into concrete
+ * Turing machine operations, handling both synchronous and asynchronous
+ * execution patterns.</p>
  */
 public class TuringIIAR extends IIActorRef<Turing> {
 

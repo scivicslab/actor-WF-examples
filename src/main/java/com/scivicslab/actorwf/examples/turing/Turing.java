@@ -1,5 +1,5 @@
 /*
- * Copyright 2025 devteam@scivics-lab.com
+ * Copyright 2025 Scivics Lab
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -7,32 +7,39 @@
  *
  *     http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
- * either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
-package com.scivicslab.turing;
+package com.scivicslab.actorwf.examples.turing;
 
 /**
  * A Turing machine implementation that simulates the basic operations of a Turing machine.
- * This class provides functionality for reading, writing, and moving on an infinite tape,
- * along with position tracking and iteration counting.
- * 
- * @author devteam@scivics-lab.com
- * @version 1.0.0
+ *
+ * <p>This class provides functionality for reading, writing, and moving on an infinite tape,
+ * along with position tracking and iteration counting. The Turing machine operates on a
+ * tape that can expand dynamically as needed.</p>
+ *
+ * <p>Key features:</p>
+ * <ul>
+ * <li>Infinite tape support through dynamic resizing</li>
+ * <li>Read and write operations at the current tape position</li>
+ * <li>Left and right movement along the tape</li>
+ * <li>Iteration counter with configurable maximum</li>
+ * <li>Pattern matching capabilities for tape values</li>
+ * </ul>
  */
 public class Turing {
 
     /** The current position of the Turing machine head on the tape. */
     int currentPos = 0;
-    
+
     /** The iteration counter for tracking machine steps. */
     int counter = 0;
-    
+
     /** The infinite tape for the Turing machine. */
     Tape tape = new Tape();
 
@@ -49,7 +56,10 @@ public class Turing {
         return currentPos;
     }
 
-    /** Returns a value at the current position on the tape.
+    /**
+     * Returns the value at the current position on the tape.
+     *
+     * @return the string value at the current tape position
      */
     public String getCurrentValue() {
         return this.tape.getWithResizing(currentPos);
@@ -66,16 +76,25 @@ public class Turing {
 
 
 
-    /** Increments the iteration counter.
+    /**
+     * Increments the iteration counter.
      *
-     * @return the value of the iteration counter after update.
+     * @return the value of the iteration counter after incrementing
      */
     public int increment() {
         return ++this.counter;
     }
 
-    
-    /** Initializes the Turing machine.
+
+    /**
+     * Initializes the Turing machine to its starting state.
+     *
+     * <p>This method resets the machine by:</p>
+     * <ul>
+     * <li>Setting the current position to 0</li>
+     * <li>Resetting the iteration counter to 0</li>
+     * <li>Creating a new empty tape</li>
+     * </ul>
      */
     public void initMachine() {
         this.currentPos = 0;
@@ -94,31 +113,32 @@ public class Turing {
     }
 
 
-    
-    /** Check if the value of the current position is NONE or not.
-     * 
-     * @return True if the value of the current positon is None. Otherwise False.
+
+    /**
+     * Checks if the value at the current position is NONE (space).
+     *
+     * @return true if the current position contains a space, false otherwise
      */
     public boolean isNone() {
         return this.getCurrentValue().equals(" ");
     }
 
-    /** Checks if the value of the current position on the tape 
-     *  matches to a given value.
+    /**
+     * Checks if the value of the current position on the tape matches a given value.
      *
-     *  @param value a value used for the test.
-     *  @return True if the current value equals to the given value. Otherwise False.
+     * @param value the value to compare against the current tape position
+     * @return true if the current value equals the given value, false otherwise
      */
     public boolean matchCurrentValue(String value) {
         return this.getCurrentValue().equals(value);
     }
 
-    
-    /** Checks if the value of the current position on the tape 
-     *  matches to a value in a given set.
+
+    /**
+     * Checks if the value of the current position on the tape matches any value in a given set.
      *
-     *  @param  values an array of values used for the test.
-     *  @return True if the current value equals to one of the given value. Otherwise false.
+     * @param values an array of values to test against
+     * @return true if the current value equals one of the given values, false otherwise
      */
     public boolean matchCurrentValue(String[] values) {
         boolean result = false;
@@ -133,9 +153,10 @@ public class Turing {
     }
 
 
-    /** Move currentPos on the tape one step left or right.
-     * 
-     * @param direction a string consisting of a single character that represents move direction, "L" or "R"
+    /**
+     * Moves the current position on the tape one step left or right.
+     *
+     * @param direction a string representing the move direction: "L" for left or "R" for right (case-insensitive)
      */
     public void move(String direction) {
         if (direction.equalsIgnoreCase("L")) {
@@ -147,20 +168,20 @@ public class Turing {
     }
 
 
-    /** Puts a number at the current position of the tape.
+    /**
+     * Writes a value at the current position of the tape.
      *
-     * @param value a number written on the tape.
+     * @param value the string value to write on the tape
      */
     public void put(String value) {
         this.tape.setWithResizing(this.currentPos, value);
     }
-    
 
-    /** Prints out the content of the tape.
-     */
+
     /**
      * Prints the current state of the tape to standard output.
-     * The output includes the tape label, counter value, and tape content.
+     *
+     * <p>The output format is: TAPE [counter] value [tape-content]</p>
      */
     public void printTape() {
         System.out.println(String.format("%s\t%d\t%s\t%s",
@@ -169,22 +190,26 @@ public class Turing {
                                          "value",
                                          this.tape.toString()
                                          ));
-        
+
     }
 
 
-    
-    /** Checks if the maximum number of iteration has been reached.
-     */    
+
+    /**
+     * Checks if the maximum number of iterations has been reached.
+     *
+     * @return true if the counter has reached or exceeded maxIterations, false otherwise
+     */
     public boolean reachMaxIterations() {
         return this.counter >= this.maxIterations;
     }
     
-    
 
-    /** Sets current position of the Turing machine.
-     * 
-     * @param pos new current position.
+
+    /**
+     * Sets the current position of the Turing machine head on the tape.
+     *
+     * @param pos the new current position
      */
     public void setCurrentPos(int pos) {
         this.currentPos = pos;

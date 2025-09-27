@@ -1,15 +1,60 @@
-package com.scivicslab.claudecode;
+/*
+ * Copyright 2025 Scivics Lab
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package com.scivicslab.actorwf.examples.claudecode;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Parser for analyzing Claude Code CLI terminal output and detecting prompt types.
+ * <p>
+ * This class analyzes terminal output lines to identify various states and prompts
+ * from the Claude Code CLI, including yes/no questions, numbered choices, tool approval
+ * requests, processing states, and errors. It uses regular expressions and heuristics
+ * to classify the output appropriately.
+ * </p>
+ *
+ * @author Scivics Lab
+ * @version 1.0
+ */
 public class ClaudeCodeParser {
 
+    /**
+     * Pattern for detecting numbered choice items (e.g., "1. Option" or "1) Option").
+     */
     private static final Pattern NUMBERED_CHOICE_PATTERN = Pattern.compile("^\\s*\\d+[\\.\\)]\\s+(.+)$");
+
+    /**
+     * Pattern for detecting yes/no prompts in various formats.
+     */
     private static final Pattern YES_NO_PATTERN = Pattern.compile("\\(y/n\\)|\\[y/n\\]|\\(yes/no\\)", Pattern.CASE_INSENSITIVE);
 
+    /**
+     * Parses terminal output lines and determines the current state and prompt type.
+     * <p>
+     * The parsing process examines the last few lines of output and applies various
+     * heuristics to identify the current state: ready prompt, numbered choices,
+     * yes/no questions, tool approval requests, processing, errors, or general responses.
+     * </p>
+     *
+     * @param lines the terminal output lines to parse
+     * @return a ClaudeCodeOutput object containing the parsed state and metadata
+     */
     public ClaudeCodeOutput parse(List<String> lines) {
         if (lines == null || lines.isEmpty()) {
             return new ClaudeCodeOutput(lines, PromptType.UNKNOWN, null, null);

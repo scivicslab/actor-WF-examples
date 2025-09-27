@@ -1,5 +1,5 @@
 /*
- * Copyright 2025 devteam@scivics-lab.com
+ * Copyright 2025 Scivics Lab
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -7,44 +7,70 @@
  *
  *     http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
- * either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
-package com.scivicslab.turing;
+package com.scivicslab.actorwf.examples.turing;
 
 import java.util.concurrent.ExecutionException;
 
 import com.scivicslab.pojoactor.ActorRef;
 
 /**
- * A demonstration application that implements another Turing machine computation.
- * This application creates a Turing machine actor and executes a different algorithm than Turing123App.
- * 
- * @author devteam@scivics-lab.com
- * @version 1.0.0
+ * A demonstration application that implements a more complex Turing machine computation.
+ *
+ * <p>This application creates a Turing machine actor and executes a sophisticated algorithm
+ * that manipulates the tape using multiple states and conditional logic. Unlike Turing123App,
+ * this implementation includes pattern matching and conditional state transitions.</p>
+ *
+ * <p>The algorithm performs operations including:</p>
+ * <ul>
+ * <li>Initializing the tape with markers ('e') and initial values ('0')</li>
+ * <li>Pattern matching on tape values ('0', '1', 'x', 'e', space)</li>
+ * <li>Conditional state transitions based on current tape values</li>
+ * <li>Complex tape manipulation including marking and unmarking positions</li>
+ * <li>Periodic tape output display for debugging and visualization</li>
+ * </ul>
+ *
+ * <p>This application demonstrates advanced Turing machine capabilities including
+ * bi-directional tape movement and multi-symbol alphabets.</p>
  */
 public class Turing134App {
 
     /**
      * Main entry point for the Turing134 application.
-     * 
+     *
      * @param args command line arguments (not used)
      */
     static public void main(String[] args) {
         Turing134App obj = new Turing134App();
         obj.calc();
     }
-    
 
-    
+
+
     /**
      * Executes the Turing machine calculation using actor-based messaging.
-     * This method implements a specific Turing machine algorithm with tape output display.
+     *
+     * <p>This method implements a complex Turing machine algorithm through asynchronous
+     * message passing. The algorithm runs for up to 500 iterations and prints the tape
+     * state at each iteration for visualization. The computation uses five states (0-4)
+     * with conditional logic based on the current tape symbol.</p>
+     *
+     * <p>The method demonstrates:</p>
+     * <ul>
+     * <li>State-based control flow with multiple conditional branches</li>
+     * <li>Pattern matching using ask/tell operations</li>
+     * <li>Complex tape manipulation patterns</li>
+     * <li>Iterative tape output for process visualization</li>
+     * </ul>
+     *
+     * <p>The method uses the ActorRef pattern for thread-safe, asynchronous communication
+     * with the Turing machine instance.</p>
      */
     public void calc() {
 

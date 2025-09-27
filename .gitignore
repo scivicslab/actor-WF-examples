@@ -3,6 +3,7 @@ target/
 .classpath
 .project
 dependency-reduced-pom.xml
+reports/
 
 # Compiled class file
 *.class

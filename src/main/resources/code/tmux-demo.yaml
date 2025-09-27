@@ -1,0 +1,108 @@
+---
+name: tmux-demo
+matrix:
+  - states:
+      - 0
+      - 1
+    actions:
+      - - session
+        - createSession
+        - ""
+  - states:
+      - 1
+      - 2
+    actions:
+      - - monitor
+        - startMonitoring
+        - ""
+  - states:
+      - 2
+      - 3
+    actions:
+      - - "@ip"
+        - sleep
+        - "2000"
+  - states:
+      - 3
+      - 4
+    actions:
+      - - session
+        - sendCommand
+        - "ls -la"
+  - states:
+      - 4
+      - 5
+    actions:
+      - - "@ip"
+        - sleep
+        - "2000"
+  - states:
+      - 5
+      - 6
+    actions:
+      - - session
+        - printPane
+        - ""
+  - states:
+      - 6
+      - 7
+    actions:
+      - - session
+        - sendCommand
+        - "echo 'Hello from workflow'"
+  - states:
+      - 7
+      - 8
+    actions:
+      - - "@ip"
+        - sleep
+        - "2000"
+  - states:
+      - 8
+      - 9
+    actions:
+      - - session
+        - printPane
+        - ""
+  - states:
+      - 9
+      - 10
+    actions:
+      - - session
+        - sendCommand
+        - "pwd"
+  - states:
+      - 10
+      - 11
+    actions:
+      - - "@ip"
+        - sleep
+        - "2000"
+  - states:
+      - 11
+      - 12
+    actions:
+      - - session
+        - printPane
+        - ""
+  - states:
+      - 12
+      - 13
+    actions:
+      - - session
+        - checkPrompt
+        - ""
+  - states:
+      - 13
+      - 14
+    actions:
+      - - monitor
+        - stopMonitoring
+        - ""
+  - states:
+      - 14
+      - -1
+    actions:
+      - - session
+        - killSession
+        - ""

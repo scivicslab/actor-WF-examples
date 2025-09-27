@@ -1,0 +1,115 @@
+---
+name: tmux-interactive
+matrix:
+  - states:
+      - 0
+      - 1
+    actions:
+      - - session
+        - createSession
+        - ""
+  - states:
+      - 1
+      - 2
+    actions:
+      - - monitor
+        - startMonitoring
+        - ""
+  - states:
+      - 2
+      - 3
+    actions:
+      - - "@ip"
+        - sleep
+        - "2000"
+  - states:
+      - 3
+      - 4
+    actions:
+      - - session
+        - sendCommand
+        - "mkdir -p /tmp/test-dir"
+  - states:
+      - 4
+      - 5
+    actions:
+      - - "@ip"
+        - sleep
+        - "1000"
+  - states:
+      - 5
+      - 6
+    actions:
+      - - session
+        - sendCommand
+        - "cd /tmp/test-dir"
+  - states:
+      - 6
+      - 7
+    actions:
+      - - "@ip"
+        - sleep
+        - "1000"
+  - states:
+      - 7
+      - 8
+    actions:
+      - - session
+        - sendCommand
+        - "echo 'Test content' > test.txt"
+  - states:
+      - 8
+      - 9
+    actions:
+      - - "@ip"
+        - sleep
+        - "1000"
+  - states:
+      - 9
+      - 10
+    actions:
+      - - session
+        - sendCommand
+        - "cat test.txt"
+  - states:
+      - 10
+      - 11
+    actions:
+      - - "@ip"
+        - sleep
+        - "1000"
+  - states:
+      - 11
+      - 12
+    actions:
+      - - session
+        - printPane
+        - ""
+  - states:
+      - 12
+      - 13
+    actions:
+      - - session
+        - sendCommand
+        - "cd ~ && rm -rf /tmp/test-dir"
+  - states:
+      - 13
+      - 14
+    actions:
+      - - "@ip"
+        - sleep
+        - "1000"
+  - states:
+      - 14
+      - 15
+    actions:
+      - - monitor
+        - stopMonitoring
+        - ""
+  - states:
+      - 15
+      - -1
+    actions:
+      - - session
+        - killSession
+        - ""

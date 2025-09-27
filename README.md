@@ -73,6 +73,16 @@ mvn exec:java -Dexec.mainClass="com.scivicslab.turing.Turing123App"
 mvn exec:java -Dexec.mainClass="com.scivicslab.turing.Turing134App"
 ```
 
+Using the JAR file:
+
+```bash
+# Run Turing123 algorithm
+java -cp target/actor-WF-examples-1.0.0.jar com.scivicslab.turing.Turing123App
+
+# Run Turing134 algorithm
+java -cp target/actor-WF-examples-1.0.0.jar com.scivicslab.turing.Turing134App
+```
+
 ### Running YAML Workflow Examples
 
 Using Maven exec:

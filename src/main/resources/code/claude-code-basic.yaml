@@ -1,59 +1,27 @@
 ---
 name: claude-code-basic
 matrix:
-  - states:
-      - 0
-      - 1
+  - states: [0, 1]
     actions:
-      - - session
-        - sendPrompt
-        - "What is 2 + 2?"
-  - states:
-      - 1
-      - 2
+      - ["session", "sendPrompt", "What is 2 + 2?"]
+  - states: [1, 2]
     actions:
-      - - session
-        - printLastOutput
-        - ""
-  - states:
-      - 2
-      - 3
+      - ["session", "printLastOutput", ""]
+  - states: [2, 3]
     actions:
-      - - session
-        - sendPrompt
-        - "What is 5 * 3?"
-  - states:
-      - 3
-      - 4
+      - ["session", "sendPrompt", "What is 5 * 3?"]
+  - states: [3, 4]
     actions:
-      - - session
-        - printLastOutput
-        - ""
-  - states:
-      - 4
-      - 5
+      - ["session", "printLastOutput", ""]
+  - states: [4, 5]
     actions:
-      - - session
-        - requestChoices
-        - "Suggest 3 programming languages as numbered options 1, 2, 3"
-  - states:
-      - 5
-      - 6
+      - ["session", "requestChoices", "Suggest 3 programming languages as numbered options 1, 2, 3"]
+  - states: [5, 6]
     actions:
-      - - session
-        - printLastOutput
-        - ""
-  - states:
-      - 6
-      - 7
+      - ["session", "printLastOutput", ""]
+  - states: [6, 7]
     actions:
-      - - session
-        - selectChoice
-        - "1"
-  - states:
-      - 7
-      - -1
+      - ["session", "selectChoice", "1"]
+  - states: [7, -1]
     actions:
-      - - session
-        - printLastOutput
-        - ""
+      - ["session", "printLastOutput", ""]

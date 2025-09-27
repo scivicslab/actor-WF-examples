@@ -11,7 +11,90 @@ Successfully implemented programmatic control of OpenAI Codex from Java using th
 
 ## Problem Statement
 
-The same TTY requirement applies to Codex as it did to Claude Code. Direct ProcessBuilder invocation without TTY causes the process to hang.
+### Initial Challenge: Why Can't We Pass a Prompt with `--last`?
+
+A comprehensive explanation of the Codex CLI resume behavior:
+
+#### 1. Normal `codex exec`
+
+```bash
+codex exec "hello"
+```
+
+* This **starts a new session** and sends `"hello"`.
+* Both "startup" and "prompt sending" happen in one command.
+
+#### 2. The `resume` Specification
+
+```bash
+codex exec resume [SESSION_ID] [PROMPT]
+```
+
+* Normally you specify `SESSION_ID` to resume, and can send `"PROMPT"` at the same time.
+* However, when using `--last`, you can "omit the session ID" but **cannot write PROMPT as an argument**.
+
+Therefore:
+
+```bash
+codex exec resume --last "hello"
+```
+
+Results in an error because `"hello"` is interpreted as `SESSION_ID`.
+
+#### 3. How to Use `--last` Properly
+
+```bash
+codex exec resume --last
+```
+
+* This "opens the most recent session and enters interactive mode (REPL state)".
+* In this state, it's "waiting for human keyboard input", so the next prompt must be provided via **stdin (standard input)**.
+
+#### 4. Using Standard Input (Shell Example)
+
+```bash
+echo "hello again" | codex exec resume --last
+```
+
+* Launch `codex exec resume --last`
+* Pass the output of `echo "hello again"` as "standard input"
+* The CLI treats it as "user typed input" and processes it
+
+#### 5. Implementation in Java
+
+Using Java's `ProcessBuilder`, you can **write to the process's standard input**:
+
+```java
+ProcessBuilder pb = new ProcessBuilder("codex", "exec", "resume", "--last");
+Process proc = pb.start();
+
+// Send prompt to codex (via stdin)
+try (BufferedWriter writer = new BufferedWriter(
+        new OutputStreamWriter(proc.getOutputStream()))) {
+    writer.write("hello again\n"); // Newline is required
+    writer.flush();
+}
+
+// Read codex response (from stdout)
+try (BufferedReader reader = new BufferedReader(
+        new InputStreamReader(proc.getInputStream()))) {
+    String line;
+    while ((line = reader.readLine()) != null) {
+        System.out.println(line);
+    }
+}
+```
+
+#### 6. Summary
+
+* `codex exec "prompt"` → **Can send in one shot at startup**
+* `codex exec resume --last` → **Enters input-waiting state after startup**
+* Therefore "cannot pass prompt together with the command"
+* **Alternative approaches**:
+  * Shell: `echo "..." | codex exec resume --last`
+  * Java: Write to `OutputStream` via `ProcessBuilder`
+
+This is why we need to **write to standard input** for session resumption.
 
 ## Solution
 

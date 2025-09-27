@@ -1,5 +1,5 @@
 ---
-name: claude-code-basic
+name: codex-basic
 matrix:
   - states:
       - 0

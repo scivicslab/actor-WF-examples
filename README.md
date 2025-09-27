@@ -59,21 +59,11 @@ Each algorithm is available in two forms:
 mvn clean package -DskipTests
 ```
 
-This creates an executable JAR: `target/actor-WF-examples-1.0.0.jar`
+This creates a JAR with all dependencies: `target/actor-WF-examples-1.0.0.jar`
 
-### Running Traditional Actor-Based Examples
+### Running Examples
 
-Using Maven exec:
-
-```bash
-# Run Turing123 algorithm
-mvn exec:java -Dexec.mainClass="com.scivicslab.turing.Turing123App"
-
-# Run Turing134 algorithm
-mvn exec:java -Dexec.mainClass="com.scivicslab.turing.Turing134App"
-```
-
-Using the JAR file:
+#### Traditional Actor-Based Examples
 
 ```bash
 # Run Turing123 algorithm
@@ -83,26 +73,14 @@ java -cp target/actor-WF-examples-1.0.0.jar com.scivicslab.turing.Turing123App
 java -cp target/actor-WF-examples-1.0.0.jar com.scivicslab.turing.Turing134App
 ```
 
-### Running YAML Workflow Examples
-
-Using Maven exec:
+#### YAML Workflow Examples
 
 ```bash
 # Run turing123 workflow
-mvn exec:java -Dexec.mainClass="com.scivicslab.turing.TuringWorkflowApp" -Dexec.args="turing123"
+java -cp target/actor-WF-examples-1.0.0.jar com.scivicslab.turing.TuringWorkflowApp turing123
 
 # Run turing134 workflow
-mvn exec:java -Dexec.mainClass="com.scivicslab.turing.TuringWorkflowApp" -Dexec.args="turing134"
-```
-
-Using the JAR file:
-
-```bash
-# Run turing123 workflow
-java -jar target/actor-WF-examples-1.0.0.jar turing123
-
-# Run turing134 workflow
-java -jar target/actor-WF-examples-1.0.0.jar turing134
+java -cp target/actor-WF-examples-1.0.0.jar com.scivicslab.turing.TuringWorkflowApp turing134
 ```
 
 ### Example Output

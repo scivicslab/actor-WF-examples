@@ -17,7 +17,9 @@ This repository contains Turing machine implementations that demonstrate:
 
 ### Turing Machine Implementations
 
-The examples implement Turing machines that write patterns to an infinite tape. Two algorithms are provided:
+The examples implement Turing machines that write patterns to an infinite tape, based on algorithms from Charles Petzold's *The Annotated Turing: A Guided Tour Through Alan Turing's Historic Paper on Computability and the Turing Machine* (Wiley, 2008, ISBN: 978-0470229057).
+
+Two algorithms are provided:
 
 1. **Turing123**: Writes alternating `0 1` pattern (`0 1 0 1 0 1...`)
 2. **Turing134**: Writes a more complex pattern with state-based logic

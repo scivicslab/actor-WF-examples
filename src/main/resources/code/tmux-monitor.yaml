@@ -1,122 +1,54 @@
 ---
 name: tmux-monitor
 matrix:
-  - states:
-      - 0
-      - 1
+  - states: [0, 1]
     actions:
-      - - session
-        - createSession
-        - ""
-  - states:
-      - 1
-      - 2
+      - ["session", "createSession", ""]
+  - states: [1, 2]
     actions:
-      - - monitor
-        - startMonitoring
-        - ""
-  - states:
-      - 2
-      - 3
+      - ["monitor", "startMonitoring", ""]
+  - states: [2, 3]
     actions:
-      - - "@ip"
-        - sleep
-        - "2000"
-  - states:
-      - 3
-      - 4
+      - ["@ip", "sleep", "2000"]
+  - states: [3, 4]
     actions:
-      - - session
-        - sendCommand
-        - "date"
-  - states:
-      - 4
-      - 5
+      - ["session", "sendCommand", "date"]
+  - states: [4, 5]
     actions:
-      - - "@ip"
-        - sleep
-        - "1000"
-  - states:
-      - 5
-      - 6
+      - ["@ip", "sleep", "1000"]
+  - states: [5, 6]
     actions:
-      - - monitor
-        - printLatestOutput
-        - ""
-  - states:
-      - 6
-      - 7
+      - ["monitor", "printLatestOutput", ""]
+  - states: [6, 7]
     actions:
-      - - session
-        - sendCommand
-        - "whoami"
-  - states:
-      - 7
-      - 8
+      - ["session", "sendCommand", "whoami"]
+  - states: [7, 8]
     actions:
-      - - "@ip"
-        - sleep
-        - "1000"
-  - states:
-      - 8
-      - 9
+      - ["@ip", "sleep", "1000"]
+  - states: [8, 9]
     actions:
-      - - monitor
-        - printLatestOutput
-        - ""
-  - states:
-      - 9
-      - 10
+      - ["monitor", "printLatestOutput", ""]
+  - states: [9, 10]
     actions:
-      - - session
-        - sendCommand
-        - "hostname"
-  - states:
-      - 10
-      - 11
+      - ["session", "sendCommand", "hostname"]
+  - states: [10, 11]
     actions:
-      - - "@ip"
-        - sleep
-        - "1000"
-  - states:
-      - 11
-      - 12
+      - ["@ip", "sleep", "1000"]
+  - states: [11, 12]
     actions:
-      - - monitor
-        - printLatestOutput
-        - ""
-  - states:
-      - 12
-      - 13
+      - ["monitor", "printLatestOutput", ""]
+  - states: [12, 13]
     actions:
-      - - session
-        - sendCommand
-        - "uname -a"
-  - states:
-      - 13
-      - 14
+      - ["session", "sendCommand", "uname -a"]
+  - states: [13, 14]
     actions:
-      - - "@ip"
-        - sleep
-        - "1000"
-  - states:
-      - 14
-      - 15
+      - ["@ip", "sleep", "1000"]
+  - states: [14, 15]
     actions:
-      - - monitor
-        - printLatestOutput
-        - ""
-  - states:
-      - 15
-      - 16
+      - ["monitor", "printLatestOutput", ""]
+  - states: [15, 16]
     actions:
-      - - monitor
-        - stopMonitoring
-        - ""
-  - states:
-      - 16
-      - -1
+      - ["monitor", "stopMonitoring", ""]
+  - states: [16, -1]
     actions:
-      - - session
-        - killSession
-        - ""
+      - ["session", "killSession", ""]

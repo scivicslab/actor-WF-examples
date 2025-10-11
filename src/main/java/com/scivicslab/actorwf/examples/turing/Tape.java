@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.scivicslab.actorwf.examples.turing;
+package com.scivicslab.pojoactor.workflow.examples.turing;
 
 import java.util.ArrayList;
 import java.util.StringJoiner;

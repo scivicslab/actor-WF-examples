@@ -13,14 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.scivicslab.actorwf.examples.terminal;
+package com.scivicslab.pojoactor.workflow.examples.terminal;
 
 import java.io.InputStream;
 
-import com.scivicslab.actorwf.IIActorSystem;
-import com.scivicslab.actorwf.Interpreter;
-import com.scivicslab.actorwf.InterpreterIIAR;
-import com.scivicslab.actorwf.MatrixCode;
+import com.scivicslab.pojoactor.workflow.IIActorSystem;
+import com.scivicslab.pojoactor.workflow.Interpreter;
+import com.scivicslab.pojoactor.workflow.InterpreterIIAR;
+import com.scivicslab.pojoactor.workflow.MatrixCode;
 import com.scivicslab.pojoactor.ActorRef;
 
 /**

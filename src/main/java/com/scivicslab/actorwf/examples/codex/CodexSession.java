@@ -13,10 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.scivicslab.actorwf.examples.codex;
+package com.scivicslab.pojoactor.workflow.examples.codex;
 
-import com.scivicslab.actorwf.examples.claudecode.ClaudeCodeOutput;
-import com.scivicslab.actorwf.examples.claudecode.ClaudeCodeParser;
+import com.scivicslab.pojoactor.workflow.examples.claudecode.ClaudeCodeOutput;
+import com.scivicslab.pojoactor.workflow.examples.claudecode.ClaudeCodeParser;
 
 import java.io.BufferedReader;
 import java.io.IOException;

@@ -13,11 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.scivicslab.actorwf.examples.claudecode;
+package com.scivicslab.pojoactor.workflow.examples.claudecode;
 
-import com.scivicslab.actorwf.IIActorSystem;
-import com.scivicslab.actorwf.Interpreter;
-import com.scivicslab.actorwf.InterpreterIIAR;
+import com.scivicslab.pojoactor.workflow.IIActorSystem;
+import com.scivicslab.pojoactor.workflow.Interpreter;
+import com.scivicslab.pojoactor.workflow.InterpreterIIAR;
 
 import java.io.InputStream;
 
@@ -29,7 +29,7 @@ import java.io.InputStream;
  *
  * <p>Usage:</p>
  * <pre>
- * mvn exec:java -Dexec.mainClass="com.scivicslab.actorwf.examples.claudecode.ClaudeCodeWorkflowApp" -Dexec.args="claude-code-basic"
+ * mvn exec:java -Dexec.mainClass="com.scivicslab.pojoactor.workflow.examples.claudecode.ClaudeCodeWorkflowApp" -Dexec.args="claude-code-basic"
  * </pre>
  *
  * @author Scivics Lab

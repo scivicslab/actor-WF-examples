@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.scivicslab.actorwf.examples.claudecode;
+package com.scivicslab.pojoactor.workflow.examples.claudecode;
 
 /**
  * Enumeration of prompt types that can be detected in Claude Code CLI output.

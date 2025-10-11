@@ -13,11 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.scivicslab.actorwf.examples.codex;
+package com.scivicslab.pojoactor.workflow.examples.codex;
 
-import com.scivicslab.actorwf.IIActorSystem;
-import com.scivicslab.actorwf.Interpreter;
-import com.scivicslab.actorwf.InterpreterIIAR;
+import com.scivicslab.pojoactor.workflow.IIActorSystem;
+import com.scivicslab.pojoactor.workflow.Interpreter;
+import com.scivicslab.pojoactor.workflow.InterpreterIIAR;
 
 import java.io.InputStream;
 
@@ -29,7 +29,7 @@ import java.io.InputStream;
  *
  * <p>Usage:</p>
  * <pre>
- * mvn exec:java -Dexec.mainClass="com.scivicslab.actorwf.examples.codex.CodexWorkflowApp" -Dexec.args="codex-basic"
+ * mvn exec:java -Dexec.mainClass="com.scivicslab.pojoactor.workflow.examples.codex.CodexWorkflowApp" -Dexec.args="codex-basic"
  * </pre>
  *
  * @author Scivics Lab

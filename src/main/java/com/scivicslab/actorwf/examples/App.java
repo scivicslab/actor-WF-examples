@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.scivicslab.actorwf.examples;
+package com.scivicslab.pojoactor.workflow.examples;
 
 /**
  * Main application entry point.

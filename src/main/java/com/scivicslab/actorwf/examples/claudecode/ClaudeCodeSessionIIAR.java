@@ -13,11 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.scivicslab.actorwf.examples.claudecode;
+package com.scivicslab.pojoactor.workflow.examples.claudecode;
 
-import com.scivicslab.actorwf.ActionResult;
-import com.scivicslab.actorwf.IIActorRef;
-import com.scivicslab.actorwf.IIActorSystem;
+import com.scivicslab.pojoactor.ActionResult;
+import com.scivicslab.pojoactor.workflow.IIActorRef;
+import com.scivicslab.pojoactor.workflow.IIActorSystem;
 
 /**
  * Interpreter-interfaced actor reference for Claude Code session instances.

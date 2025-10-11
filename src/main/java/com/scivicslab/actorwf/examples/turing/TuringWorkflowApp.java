@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.scivicslab.actorwf.examples.turing;
+package com.scivicslab.pojoactor.workflow.examples.turing;
 
 import com.scivicslab.pojoactor.workflow.IIActorSystem;
 import com.scivicslab.pojoactor.workflow.Interpreter;
@@ -39,10 +39,10 @@ import java.util.concurrent.ExecutionException;
  * <p>Usage:</p>
  * <pre>
  * # Run turing123 workflow
- * mvn exec:java -Dexec.mainClass="com.scivicslab.actorwf.examples.turing.TuringWorkflowApp" -Dexec.args="turing123"
+ * mvn exec:java -Dexec.mainClass="com.scivicslab.pojoactor.workflow.examples.turing.TuringWorkflowApp" -Dexec.args="turing123"
  *
  * # Run turing134 workflow
- * mvn exec:java -Dexec.mainClass="com.scivicslab.actorwf.examples.turing.TuringWorkflowApp" -Dexec.args="turing134"
+ * mvn exec:java -Dexec.mainClass="com.scivicslab.pojoactor.workflow.examples.turing.TuringWorkflowApp" -Dexec.args="turing134"
  * </pre>
  *
  * <p>Key features:</p>

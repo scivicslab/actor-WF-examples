@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.scivicslab.actorwf.examples.terminal;
+package com.scivicslab.pojoactor.workflow.examples.terminal;
 
 import com.scivicslab.pojoactor.ActorRef;
 import com.scivicslab.pojoactor.ActorSystem;

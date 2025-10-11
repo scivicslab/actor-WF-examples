@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.scivicslab.actorwf.examples.codex;
+package com.scivicslab.pojoactor.workflow.examples.codex;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -28,8 +28,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestMethodOrder;
 
-import com.scivicslab.actorwf.examples.claudecode.ClaudeCodeOutput;
-import com.scivicslab.actorwf.examples.claudecode.PromptType;
+import com.scivicslab.pojoactor.workflow.examples.claudecode.ClaudeCodeOutput;
+import com.scivicslab.pojoactor.workflow.examples.claudecode.PromptType;
 import com.scivicslab.pojoactor.ActorRef;
 import com.scivicslab.pojoactor.ActorSystem;
 

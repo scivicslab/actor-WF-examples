@@ -1,5 +1,5 @@
 /*
- * Copyright 2025 devteam@scivics-lab.com
+ * Copyright 2025 Scivics Lab
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -7,15 +7,14 @@
  *
  *     http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
- * either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
-package com.scivicslab.turing;
+package com.scivicslab.actorwf.examples.turing;
 
 import java.util.ArrayList;
 import java.util.StringJoiner;
@@ -24,11 +23,19 @@ import java.util.StringJoiner;
 
 /**
  * An infinite tape implementation for a Turing machine.
- * This class extends ArrayList to provide a dynamic tape that can grow as needed.
+ *
+ * <p>This class extends ArrayList to provide a dynamic tape that can grow as needed.
  * Each cell can contain string values, with empty cells represented by spaces.
- * 
- * @author devteam@scivics-lab.com
- * @version 1.0.0
+ * The tape automatically expands when accessing or writing to positions beyond its
+ * current size, making it behave as an infinite tape.</p>
+ *
+ * <p>Key features:</p>
+ * <ul>
+ * <li>Dynamic resizing when accessing out-of-bounds indices</li>
+ * <li>Safe read operations that return spaces for uninitialized positions</li>
+ * <li>Automatic expansion with space-filled cells during writes</li>
+ * <li>String representation that concatenates all tape cells</li>
+ * </ul>
  */
 public class Tape extends ArrayList<String> {
 

@@ -1,57 +1,23 @@
 ---
 name: turing123
 matrix:
-  - states:
-      - 0
-      - 1
+  - states: [0, 1]
     actions:
-      - - turing
-        - initMachine
-        - ""
-  - states:
-      - 1
-      - 2
+      - ["turing", "initMachine", ""]
+  - states: [1, 2]
     actions:
-      - - turing
-        - printTape
-        - ""
-  - states:
-      - 2
-      - 3
+      - ["turing", "printTape", ""]
+  - states: [2, 3]
     actions:
-      - - turing
-        - put
-        - "0"
-      - - turing
-        - move
-        - R
-  - states:
-      - 3
-      - 4
+      - ["turing", "put", "0"]
+      - ["turing", "move", "R"]
+  - states: [3, 4]
     actions:
-      - - turing
-        - move
-        - R
-  - states:
-      - 4
-      - 5
+      - ["turing", "move", "R"]
+  - states: [4, 5]
     actions:
-      - - turing
-        - put
-        - "1"
-      - - turing
-        - move
-        - R
-  - states:
-      - 5
-      - 1
+      - ["turing", "put", "1"]
+      - ["turing", "move", "R"]
+  - states: [5, 1]
     actions:
-      - - turing
-        - move
-        - R
-
-
-
-
-
-        
+      - ["turing", "move", "R"]

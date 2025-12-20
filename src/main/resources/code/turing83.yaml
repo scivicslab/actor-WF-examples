@@ -1,5 +1,5 @@
 name: turing123
-matrix:
+steps:
 - states:
   - 0
   - 1

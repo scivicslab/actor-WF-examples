@@ -1,5 +1,5 @@
 name: turing134
-matrix:
+steps:
 - states:
   - 0
   - 100

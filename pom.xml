@@ -7,7 +7,7 @@
 
     <groupId>com.scivicslab</groupId>
     <artifactId>actor-WF-examples</artifactId>
-    <version>1.0.0</version>
+    <version>3.0.0</version>
     <packaging>jar</packaging>
 
     <name>actor-WF-examples</name>
@@ -22,7 +22,7 @@
         <dependency>
             <groupId>com.scivicslab</groupId>
             <artifactId>POJO-actor</artifactId>
-            <version>1.0.0</version>
+            <version>3.0.0</version>
         </dependency>
 
         <dependency>

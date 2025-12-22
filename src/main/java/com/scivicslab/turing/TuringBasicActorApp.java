@@ -69,7 +69,7 @@ public class TuringBasicActorApp {
 
             // ステップ4: アクターシステムに登録
             System.out.println("\n[ステップ4] アクターをシステムに登録");
-            system.put("turing", turingActor);
+            system.addActor(turingActor, "turing");
             System.out.println("[メイン] アクター 'turing' を登録完了");
             System.out.println("[メイン] → これでスレッドプールが活用されます");
 

@@ -17,9 +17,9 @@
 
 package com.scivicslab.turing;
 
-import com.scivicslab.actorwf.IIActorSystem;
-import com.scivicslab.actorwf.Interpreter;
-import com.scivicslab.actorwf.InterpreterIIAR;
+import com.scivicslab.pojoactor.workflow.IIActorSystem;
+import com.scivicslab.pojoactor.workflow.Interpreter;
+import com.scivicslab.pojoactor.workflow.InterpreterIIAR;
 
 import java.io.IOException;
 import java.io.InputStream;

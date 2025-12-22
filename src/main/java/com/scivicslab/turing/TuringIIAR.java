@@ -17,9 +17,9 @@
 
 package com.scivicslab.turing;
 
-import com.scivicslab.actorwf.ActionResult;
-import com.scivicslab.actorwf.IIActorRef;
-import com.scivicslab.actorwf.IIActorSystem;
+import com.scivicslab.pojoactor.ActionResult;
+import com.scivicslab.pojoactor.workflow.IIActorRef;
+import com.scivicslab.pojoactor.workflow.IIActorSystem;
 
 import java.util.concurrent.ExecutionException;
 

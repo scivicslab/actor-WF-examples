@@ -28,7 +28,7 @@ import com.scivicslab.pojoactor.ActorRef;
  * @author devteam@scivics-lab.com
  * @version 1.0.0
  */
-public class Turing123App {
+public class Turing83App {
 
     
     /**
@@ -37,7 +37,7 @@ public class Turing123App {
      * @param args command line arguments (not used)
      */
     static public void main(String[] args) {
-        Turing123App obj = new Turing123App();
+        Turing83App obj = new Turing83App();
         obj.calc();
     }
     

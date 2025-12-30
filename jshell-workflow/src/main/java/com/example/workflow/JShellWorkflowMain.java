@@ -1,7 +1,7 @@
 package com.example.workflow;
 
-import com.scivicslab.pojoactor.ActionResult;
-import com.scivicslab.pojoactor.ActorRef;
+import com.scivicslab.pojoactor.core.ActionResult;
+import com.scivicslab.pojoactor.core.ActorRef;
 import com.scivicslab.pojoactor.workflow.IIActorSystem;
 import com.scivicslab.pojoactor.workflow.Interpreter;
 

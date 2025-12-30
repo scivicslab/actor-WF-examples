@@ -17,8 +17,8 @@
 
 package com.scivicslab.turing;
 
-import com.scivicslab.pojoactor.ActorRef;
-import com.scivicslab.pojoactor.ActorSystem;
+import com.scivicslab.pojoactor.core.ActorRef;
+import com.scivicslab.pojoactor.core.ActorSystem;
 
 import java.util.concurrent.ExecutionException;
 

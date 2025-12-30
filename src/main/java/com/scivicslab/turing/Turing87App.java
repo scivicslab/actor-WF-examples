@@ -19,7 +19,7 @@ package com.scivicslab.turing;
 
 import java.util.concurrent.ExecutionException;
 
-import com.scivicslab.pojoactor.ActorRef;
+import com.scivicslab.pojoactor.core.ActorRef;
 
 /**
  * A demonstration application that implements another Turing machine computation.

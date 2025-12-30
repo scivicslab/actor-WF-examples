@@ -17,7 +17,7 @@
 
 package com.scivicslab.turing;
 
-import com.scivicslab.pojoactor.ActionResult;
+import com.scivicslab.pojoactor.core.ActionResult;
 import com.scivicslab.pojoactor.workflow.IIActorRef;
 import com.scivicslab.pojoactor.workflow.IIActorSystem;
 

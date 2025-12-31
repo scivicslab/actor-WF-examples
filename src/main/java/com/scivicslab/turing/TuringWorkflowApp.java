@@ -17,13 +17,11 @@
 
 package com.scivicslab.turing;
 
+import com.scivicslab.pojoactor.core.ActionResult;
 import com.scivicslab.pojoactor.workflow.IIActorSystem;
 import com.scivicslab.pojoactor.workflow.Interpreter;
-import com.scivicslab.pojoactor.workflow.InterpreterIIAR;
 
-import java.io.IOException;
 import java.io.InputStream;
-import java.util.concurrent.ExecutionException;
 
 /**
  * Application that executes Turing machine workflows from YAML files.
@@ -83,11 +81,7 @@ public class TuringWorkflowApp {
                     .team(system)
                     .build();
 
-            // Create interpreter actor
-            InterpreterIIAR interpreterActor = new InterpreterIIAR("interpreter", interpreter, system);
-            system.addIIActor(interpreterActor);
-
-            // Load and execute workflow
+            // Load workflow
             System.out.println("Loading workflow from: " + yamlPath);
             InputStream yamlStream = getClass().getResourceAsStream(yamlPath);
             if (yamlStream == null) {
@@ -95,22 +89,20 @@ public class TuringWorkflowApp {
                 System.exit(1);
             }
 
-            interpreterActor.tell(i -> i.readYaml(yamlStream)).get();
+            interpreter.readYaml(yamlStream);
             System.out.println("Workflow loaded successfully");
 
-            // Execute workflow (50 iterations maximum)
+            // Execute workflow (200 iterations maximum)
             System.out.println("Executing workflow...\n");
-            for (int i = 0; i < 50; i++) {
-                interpreterActor.tell(interp -> interp.execCode()).get();
-                // Continue executing until workflow completes or max iterations reached
+            ActionResult result = interpreter.runUntilEnd(200);
+
+            // Show result
+            if (result.isSuccess()) {
+                System.out.println("\nWorkflow completed successfully: " + result.getResult());
+            } else {
+                System.out.println("\nWorkflow finished: " + result.getResult());
             }
 
-            // Final tape output
-            turingActor.tell(t -> t.printTape()).get();
-
-        } catch (InterruptedException | ExecutionException e) {
-            System.err.println("Error executing workflow: " + e.getMessage());
-            e.printStackTrace();
         } finally {
             // Clean up
             system.terminateIIActors();

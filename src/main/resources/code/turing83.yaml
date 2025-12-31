@@ -1,51 +1,49 @@
-name: turing123
+name: turing83
 steps:
 - states:
-  - 0
-  - 1
+  - "0"
+  - "1"
   actions:
   - actor: turing
     method: initMachine
-    argument: ''
 - states:
-  - 1
-  - 2
+  - "1"
+  - "2"
   actions:
   - actor: turing
     method: printTape
-    argument: ''
 - states:
-  - 2
-  - 3
+  - "2"
+  - "3"
   actions:
   - actor: turing
     method: put
-    argument: '0'
+    arguments: "0"
   - actor: turing
     method: move
-    argument: R
+    arguments: "R"
 - states:
-  - 3
-  - 4
+  - "3"
+  - "4"
   actions:
   - actor: turing
     method: move
-    argument: R
+    arguments: "R"
 - states:
-  - 4
-  - 5
+  - "4"
+  - "5"
   actions:
   - actor: turing
     method: put
-    argument: '1'
+    arguments: "1"
   - actor: turing
     method: move
-    argument: R
+    arguments: "R"
 - states:
-  - 5
-  - 1
+  - "5"
+  - "1"
   actions:
   - actor: turing
     method: move
-    argument: R
+    arguments: "R"
 

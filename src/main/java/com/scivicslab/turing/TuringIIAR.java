@@ -18,6 +18,7 @@
 package com.scivicslab.turing;
 
 import com.scivicslab.pojoactor.core.ActionResult;
+import org.json.JSONArray;
 import com.scivicslab.pojoactor.workflow.IIActorRef;
 import com.scivicslab.pojoactor.workflow.IIActorSystem;
 
@@ -45,6 +46,24 @@ public class TuringIIAR extends IIActorRef<Turing> {
     }
 
     /**
+     * Parses the first element from a JSON array string.
+     * For example, '["0"]' returns "0", '["R"]' returns "R".
+     *
+     * @param args the JSON array string
+     * @return the first element as a string, or empty string if empty
+     */
+    private String parseFirstArg(String args) {
+        if (args == null || args.isEmpty() || args.equals("[]")) {
+            return "";
+        }
+        JSONArray array = new JSONArray(args);
+        if (array.length() > 0) {
+            return array.getString(0);
+        }
+        return "";
+    }
+
+    /**
      * Invokes a Turing machine action by name.
      *
      * <p>Supported actions:</p>
@@ -54,6 +73,9 @@ public class TuringIIAR extends IIActorRef<Turing> {
      * <li>move - Move the tape head (requires "L" or "R" argument)</li>
      * <li>printTape - Print the current tape contents</li>
      * <li>increment - Increment the iteration counter</li>
+     * <li>matchCurrentValue - Check if current tape value matches argument (returns boolean)</li>
+     * <li>isAny - Check if current tape value is "0" or "1" (returns boolean)</li>
+     * <li>isNone - Check if current tape value is blank " " (returns boolean)</li>
      * </ul>
      *
      * @param actionName the name of the action to execute
@@ -69,12 +91,14 @@ public class TuringIIAR extends IIActorRef<Turing> {
                     return new ActionResult(true, "Machine initialized");
 
                 case "put":
-                    this.tell(t -> t.put(args)).get();
-                    return new ActionResult(true, "Put " + args);
+                    String putValue = parseFirstArg(args);
+                    this.tell(t -> t.put(putValue)).get();
+                    return new ActionResult(true, "Put " + putValue);
 
                 case "move":
-                    this.tell(t -> t.move(args)).get();
-                    return new ActionResult(true, "Moved " + args);
+                    String direction = parseFirstArg(args);
+                    this.tell(t -> t.move(direction)).get();
+                    return new ActionResult(true, "Moved " + direction);
 
                 case "printTape":
                     this.tell(t -> t.printTape()).get();
@@ -83,6 +107,20 @@ public class TuringIIAR extends IIActorRef<Turing> {
                 case "increment":
                     int count = this.ask(t -> t.increment()).get();
                     return new ActionResult(true, "Counter: " + count);
+
+                // Condition checking actions (return boolean for workflow branching)
+                case "matchCurrentValue":
+                    String matchValue = parseFirstArg(args);
+                    boolean matchResult = this.ask(t -> t.matchCurrentValue(matchValue)).get();
+                    return new ActionResult(matchResult, "matchCurrentValue(" + matchValue + ")=" + matchResult);
+
+                case "isAny":
+                    boolean isAnyResult = this.ask(t -> t.isAny()).get();
+                    return new ActionResult(isAnyResult, "isAny=" + isAnyResult);
+
+                case "isNone":
+                    boolean isNoneResult = this.ask(t -> t.isNone()).get();
+                    return new ActionResult(isNoneResult, "isNone=" + isNoneResult);
 
                 default:
                     return new ActionResult(false, "Unknown action: " + actionName);

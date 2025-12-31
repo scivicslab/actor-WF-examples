@@ -1,178 +1,170 @@
-name: turing134
+name: turing87
 steps:
 - states:
-  - 0
-  - 100
+  - "0"
+  - "100"
   actions:
   - actor: turing
     method: initMachine
-    argument: ''
 - states:
-  - 100
-  - 1
+  - "100"
+  - "1"
   actions:
   - actor: turing
     method: printTape
-    argument: ''
 - states:
-  - 1
-  - 2
+  - "1"
+  - "2"
   actions:
   - actor: turing
     method: put
-    argument: e
+    arguments: "e"
   - actor: turing
     method: move
-    argument: R
+    arguments: "R"
   - actor: turing
     method: put
-    argument: e
+    arguments: "e"
   - actor: turing
     method: move
-    argument: R
+    arguments: "R"
   - actor: turing
     method: put
-    argument: '0'
+    arguments: "0"
   - actor: turing
     method: move
-    argument: R
+    arguments: "R"
   - actor: turing
     method: move
-    argument: R
+    arguments: "R"
   - actor: turing
     method: put
-    argument: '0'
+    arguments: "0"
   - actor: turing
     method: move
-    argument: L
+    arguments: "L"
   - actor: turing
     method: move
-    argument: L
+    arguments: "L"
 - states:
-  - 101
-  - 2
+  - "101"
+  - "2"
   actions:
   - actor: turing
     method: printTape
-    argument: ''
 - states:
-  - 2
-  - 2
+  - "2"
+  - "2"
   actions:
   - actor: turing
     method: matchCurrentValue
-    argument: '1'
+    arguments: "1"
   - actor: turing
     method: move
-    argument: R
+    arguments: "R"
   - actor: turing
     method: put
-    argument: x
+    arguments: "x"
   - actor: turing
     method: move
-    argument: L
+    arguments: "L"
   - actor: turing
     method: move
-    argument: L
+    arguments: "L"
   - actor: turing
     method: move
-    argument: L
+    arguments: "L"
 - states:
-  - 2
-  - 3
+  - "2"
+  - "3"
   actions:
   - actor: turing
     method: matchCurrentValue
-    argument: '0'
+    arguments: "0"
 - states:
-  - 3
-  - 3
+  - "3"
+  - "3"
   actions:
   - actor: turing
     method: isAny
-    argument: ''
   - actor: turing
     method: move
-    argument: R
+    arguments: "R"
   - actor: turing
     method: move
-    argument: R
+    arguments: "R"
 - states:
-  - 3
-  - 4
+  - "3"
+  - "4"
   actions:
   - actor: turing
     method: isNone
-    argument: ''
   - actor: turing
     method: put
-    argument: '1'
+    arguments: "1"
   - actor: turing
     method: move
-    argument: L
+    arguments: "L"
 - states:
-  - 4
-  - 3
+  - "4"
+  - "3"
   actions:
   - actor: turing
     method: matchCurrentValue
-    argument: x
+    arguments: "x"
   - actor: turing
     method: put
-    argument: ' '
+    arguments: " "
   - actor: turing
     method: move
-    argument: R
+    arguments: "R"
 - states:
-  - 4
-  - 5
+  - "4"
+  - "5"
   actions:
   - actor: turing
     method: matchCurrentValue
-    argument: e
+    arguments: "e"
   - actor: turing
     method: move
-    argument: R
+    arguments: "R"
 - states:
-  - 4
-  - 4
+  - "4"
+  - "4"
   actions:
   - actor: turing
     method: isNone
-    argument: ''
   - actor: turing
     method: move
-    argument: L
+    arguments: "L"
   - actor: turing
     method: move
-    argument: L
+    arguments: "L"
 - states:
-  - 5
-  - 5
+  - "5"
+  - "5"
   actions:
   - actor: turing
     method: isAny
-    argument: ''
   - actor: turing
     method: move
-    argument: R
+    arguments: "R"
   - actor: turing
     method: move
-    argument: R
+    arguments: "R"
 - states:
-  - 5
-  - 101
+  - "5"
+  - "101"
   actions:
   - actor: turing
     method: isNone
-    argument: ''
   - actor: turing
     method: put
-    argument: '0'
+    arguments: "0"
   - actor: turing
     method: move
-    argument: L
+    arguments: "L"
   - actor: turing
     method: move
-    argument: L
+    arguments: "L"
 

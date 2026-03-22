@@ -11,9 +11,10 @@ steps:
   - "1"
   actions:
   - actor: turing
-    method: printTape
-  - actor: turing
     method: reportTape
+  - actor: milestone
+    method: report
+    arguments: "${result}"
 - states:
   - "1"
   - "2"
@@ -53,9 +54,10 @@ steps:
   - "2"
   actions:
   - actor: turing
-    method: printTape
-  - actor: turing
     method: reportTape
+  - actor: milestone
+    method: report
+    arguments: "${result}"
 - states:
   - "2"
   - "2"

@@ -119,10 +119,6 @@ public class TuringIIAR extends IIActorRef<Turing> {
                     String tapeInfo = String.format("TAPE\t%d\tvalue\t%s",
                             this.ask(t -> t.counter).get(),
                             this.ask(t -> t.getTapeContent()).get());
-                    IIActorSystem sys = (IIActorSystem) this.system();
-                    if (sys.hasIIActor("milestone")) {
-                        sys.getIIActor("milestone").callByActionName("report", tapeInfo);
-                    }
                     return new ActionResult(true, tapeInfo);
 
                 case "increment":

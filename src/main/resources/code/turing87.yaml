@@ -12,6 +12,8 @@ steps:
   actions:
   - actor: turing
     method: printTape
+  - actor: turing
+    method: reportTape
 - states:
   - "1"
   - "2"
@@ -52,6 +54,8 @@ steps:
   actions:
   - actor: turing
     method: printTape
+  - actor: turing
+    method: reportTape
 - states:
   - "2"
   - "2"

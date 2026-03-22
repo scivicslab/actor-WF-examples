@@ -21,8 +21,8 @@ import static com.scivicslab.pojoactor.core.ActionArgs.*;
 
 import com.scivicslab.pojoactor.core.Action;
 import com.scivicslab.pojoactor.core.ActionResult;
-import com.scivicslab.pojoactor.workflow.IIActorRef;
-import com.scivicslab.pojoactor.workflow.IIActorSystem;
+import com.scivicslab.turingworkflow.workflow.IIActorRef;
+import com.scivicslab.turingworkflow.workflow.IIActorSystem;
 
 /**
  * Interpreter-interfaced actor reference for Turing machine using @Action annotation.
@@ -45,6 +45,17 @@ public class TuringActionIIAR extends IIActorRef<Turing> {
      */
     public TuringActionIIAR(String actorName, Turing turing, IIActorSystem system) {
         super(actorName, turing, system);
+    }
+
+    /**
+     * Constructs a new TuringActionIIAR with a default Turing instance.
+     * Required for dynamic actor loading via DynamicActorLoaderActor.
+     *
+     * @param actorName the name of the actor
+     * @param system the actor system managing this actor
+     */
+    public TuringActionIIAR(String actorName, IIActorSystem system) {
+        super(actorName, new Turing(), system);
     }
 
     @Action("initMachine")

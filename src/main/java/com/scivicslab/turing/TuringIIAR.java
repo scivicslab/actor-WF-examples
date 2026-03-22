@@ -19,8 +19,8 @@ package com.scivicslab.turing;
 
 import com.scivicslab.pojoactor.core.ActionResult;
 import org.json.JSONArray;
-import com.scivicslab.pojoactor.workflow.IIActorRef;
-import com.scivicslab.pojoactor.workflow.IIActorSystem;
+import com.scivicslab.turingworkflow.workflow.IIActorRef;
+import com.scivicslab.turingworkflow.workflow.IIActorSystem;
 
 import java.util.concurrent.ExecutionException;
 
@@ -43,6 +43,17 @@ public class TuringIIAR extends IIActorRef<Turing> {
      */
     public TuringIIAR(String actorName, Turing turing, IIActorSystem system) {
         super(actorName, turing, system);
+    }
+
+    /**
+     * Constructs a new TuringIIAR with a default Turing instance.
+     * Used by DynamicActorLoaderActor for dynamic instantiation.
+     *
+     * @param actorName the name of the actor
+     * @param system the actor system managing this actor
+     */
+    public TuringIIAR(String actorName, IIActorSystem system) {
+        super(actorName, new Turing(), system);
     }
 
     /**

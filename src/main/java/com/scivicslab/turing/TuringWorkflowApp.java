@@ -18,9 +18,9 @@
 package com.scivicslab.turing;
 
 import com.scivicslab.pojoactor.core.ActionResult;
-import com.scivicslab.pojoactor.workflow.IIActorRef;
-import com.scivicslab.pojoactor.workflow.IIActorSystem;
-import com.scivicslab.pojoactor.workflow.Interpreter;
+import com.scivicslab.turingworkflow.workflow.IIActorRef;
+import com.scivicslab.turingworkflow.workflow.IIActorSystem;
+import com.scivicslab.turingworkflow.workflow.Interpreter;
 
 import java.io.InputStream;
 

@@ -1,0 +1,12 @@
+name: setup-turing
+steps:
+- states: ["0", "1"]
+  actions:
+  - actor: loader
+    method: loadJar
+    arguments: "com.scivicslab:actor-WF-examples:3.0.0"
+- states: ["1", "end"]
+  actions:
+  - actor: loader
+    method: createChild
+    arguments: ["ROOT", "turing", "com.scivicslab.turing.TuringIIAR"]
